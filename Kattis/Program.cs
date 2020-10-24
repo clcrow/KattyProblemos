@@ -13,20 +13,28 @@ namespace Kattis
 
         class Worker
         {
-            private static string inSize, inWideCut, inLenCut;
-            private double size, wideCut, lenCut, volume;
+            private string input;
+            private double count;
             public void workCode()
             {
                 GetInputs();
-                Console.WriteLine(Calculate());
+                for (int i = 0; i < count; i++)
+                {
+                    Calculate();
+                }
             }
-            private double Calculate()
+            private void Calculate()
             {
-                return 0;
+                input = Console.ReadLine();
+                if(input.StartsWith("Simon says"))
+                {
+                    Console.WriteLine(input.Substring(11));
+                }
             }
 
             private void GetInputs()
             {
+                double.TryParse(Console.ReadLine(), out count);
             }
         }
     }
