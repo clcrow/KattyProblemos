@@ -13,20 +13,38 @@ namespace Kattis
 
         class Worker
         {
-            private static string inSize, inWideCut, inLenCut;
-            private double size, wideCut, lenCut, volume;
+            private int rightSide, leftSide, score;
+            private string[] input;
             public void workCode()
             {
                 GetInputs();
                 Console.WriteLine(Calculate());
             }
-            private double Calculate()
+            private string Calculate()
             {
-                return 0;
+                if ((rightSide == 0) && (leftSide == 0))
+                {
+                    return "Not a moose";
+                }
+                else if(rightSide == leftSide)
+                {
+                    return "Even " + (rightSide + leftSide);
+                }
+                else
+                {
+                    if (rightSide > leftSide)
+                    {
+                        return "Odd " + (rightSide * 2);
+                    }
+                    else return "Odd " + (leftSide * 2); 
+                }
             }
 
             private void GetInputs()
             {
+                input = Console.ReadLine().Split(' ');
+                int.TryParse(input[0], out rightSide);
+                int.TryParse(input[1], out leftSide);
             }
         }
     }
