@@ -13,21 +13,29 @@ namespace Kattis
 
         class Worker
         {
-            private static string inSize, inWideCut, inLenCut;
-            private double size, wideCut, lenCut, volume;
+            private List<int> moduloList = new List<int>();
+            private int modulo;
             public void workCode()
             {
-                GetInputs();
-                Console.WriteLine(Calculate());
+                //GetInputs();
+                for(int i = 0; i < 10; i++)
+                {
+                    Calculate();
+                }
+                Console.WriteLine(moduloList.Count);
             }
-            private double Calculate()
+            private void Calculate()
             {
-                return 0;
+                modulo = (int.Parse(Console.ReadLine()) % 42);
+                if (!moduloList.Contains(modulo))
+                {
+                    moduloList.Add(modulo);
+                }
             }
 
-            private void GetInputs()
-            {
-            }
+            //private void GetInputs()
+            //{
+            //}
         }
     }
 }
