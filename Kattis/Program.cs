@@ -13,40 +13,18 @@ namespace Kattis
 
         class Worker
         {
-            private string[] monies;
-            private long expenseTotal, expenseCount;
             public void workCode()
             {
                 GetInputs();
-                if (!allPositive())
-                {
-                    Console.WriteLine(Calculate());
-                }
-                else Console.WriteLine('0');
+                Console.WriteLine(Calculate());
             }
-
-            private bool allPositive()
+            private double Calculate()
             {
-                for (int i = 0; i < expenseCount; i++)
-                {
-                    if (0 >= double.Parse(monies[i])) return false;
-                }
-                return true;
-            }
-            private long Calculate()
-            {
-                expenseTotal = 0;
-                foreach (string money in monies)
-                {
-                    if(long.Parse(money) <= 0) expenseTotal += long.Parse(money);
-                }
-                return 0 - expenseTotal;
+                return 0;
             }
 
             private void GetInputs()
             {
-                expenseCount = long.Parse(Console.ReadLine());
-                monies = Console.ReadLine().Split(' ');
             }
         }
     }
