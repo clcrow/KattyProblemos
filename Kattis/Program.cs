@@ -13,20 +13,31 @@ namespace Kattis
 
         class Worker
         {
-            private static string inSize, inWideCut, inLenCut;
-            private double size, wideCut, lenCut, volume;
+            private string[] junkArr;
+            private int day, num, smallest;
             public void workCode()
             {
                 GetInputs();
                 Console.WriteLine(Calculate());
             }
-            private double Calculate()
+            private int Calculate()
             {
-                return 0;
+                smallest= 100000000;
+                for (int i = 0; i < num; i++)
+                {
+                    if (int.Parse(junkArr[i]) < smallest)
+                    {
+                        smallest = int.Parse(junkArr[i]);
+                        day = i;
+                    }
+                }
+                return day;
             }
 
             private void GetInputs()
             {
+                int.TryParse(Console.ReadLine(), out num);
+                junkArr = Console.ReadLine().Split(' ');
             }
         }
     }
