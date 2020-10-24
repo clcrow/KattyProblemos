@@ -13,8 +13,6 @@ namespace Kattis
 
         class Worker
         {
-            private static string inSize, inWideCut, inLenCut;
-            private double size, wideCut, lenCut, volume;
             public void workCode()
             {
                 GetInputs();
