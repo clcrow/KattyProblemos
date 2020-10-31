@@ -13,18 +13,35 @@ namespace Kattis
 
         class Worker
         {
+            private int count, tally, decision;
+            private string buttonColour;
             public void workCode()
             {
                 GetInputs();
-                Console.WriteLine(Calculate());
+                decision = Calculate();
+                if (decision == 0)
+                {
+                    Console.WriteLine("I must watch Star Wars with my daughter");
+                }
+                else Console.WriteLine(decision);
             }
-            private double Calculate()
+            private int Calculate()
             {
-                return 0;
+                tally = 0;
+                for(int i = 0; i < count; i++)
+                {
+                    buttonColour = Console.ReadLine().ToLower();
+                    if(buttonColour.Contains("pink") || buttonColour.Contains("rose"))
+                    {
+                        tally++;
+                    }
+                }
+                return tally;
             }
 
             private void GetInputs()
             {
+                int.TryParse(Console.ReadLine(), out count);
             }
         }
     }
