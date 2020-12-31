@@ -13,18 +13,32 @@ namespace Kattis
 
         class Worker
         {
+            string hey;
+            double heycount;
+            int yloc;
             public void workCode()
             {
                 GetInputs();
                 Console.WriteLine(Calculate());
             }
-            private double Calculate()
+            private string Calculate()
             {
-                return 0;
+                hey = hey.Substring(1);
+                yloc = hey.IndexOf('y');
+                hey = hey.Substring(0, yloc);
+                heycount = (hey.Length) * 2;
+                hey = "h";
+                for (int i = 0; i < heycount; i++)
+                {
+                    hey += 'e';
+                }
+                hey += 'y';
+                return hey;
             }
 
             private void GetInputs()
             {
+                hey = Console.ReadLine();
             }
         }
     }
