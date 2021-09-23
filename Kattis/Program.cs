@@ -13,18 +13,31 @@ namespace Kattis
 
         class Worker
         {
+            string[] input;
+            string result = "";
+            List<int> inputs = new List<int>();
             public void workCode()
             {
                 GetInputs();
                 Console.WriteLine(Calculate());
             }
-            private double Calculate()
+            private string Calculate()
             {
-                return 0;
+                inputs.Sort();
+                foreach(int i in inputs)
+                {
+                    result += i.ToString() + ' ';
+                }
+                return result.Trim();
             }
 
             private void GetInputs()
             {
+                input = Console.ReadLine().Split(' ');
+                foreach(string i in input)
+                {
+                    inputs.Add(int.Parse(i));
+                }
             }
         }
     }
