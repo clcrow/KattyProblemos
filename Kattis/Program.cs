@@ -13,18 +13,20 @@ namespace Kattis
 
         class Worker
         {
+            string input;
             public void workCode()
             {
                 GetInputs();
                 Console.WriteLine(Calculate());
             }
-            private double Calculate()
+            private string Calculate()
             {
-                return 0;
+                return input.Substring(1, 1) + input.Substring(0, 1);
             }
 
             private void GetInputs()
             {
+                input = Console.ReadLine();
             }
         }
     }
