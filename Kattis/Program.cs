@@ -13,6 +13,7 @@ namespace Kattis
 
         class Worker
         {
+            string[] inputs = new string[2];
             public void workCode()
             {
                 GetInputs();
@@ -20,11 +21,13 @@ namespace Kattis
             }
             private double Calculate()
             {
-                return 0;
+                double answer = (double.Parse(inputs[0]) * double.Parse(inputs[1])) / 2;
+                return answer;
             }
 
             private void GetInputs()
             {
+                inputs = Console.ReadLine().Split(' ');
             }
         }
     }
