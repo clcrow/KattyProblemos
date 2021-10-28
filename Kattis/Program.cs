@@ -13,6 +13,9 @@ namespace Kattis
 
         class Worker
         {
+            string count;
+            string[] inputs;
+            double answer = 0;
             public void workCode()
             {
                 GetInputs();
@@ -20,11 +23,18 @@ namespace Kattis
             }
             private double Calculate()
             {
-                return 0;
+                foreach(string i in inputs)
+                {
+                    answer += int.Parse(i);
+                }
+                return answer;
             }
 
             private void GetInputs()
             {
+                count = Console.ReadLine();
+                inputs = new string[int.Parse(count)];
+                inputs = Console.ReadLine().Split(' ');
             }
         }
     }
