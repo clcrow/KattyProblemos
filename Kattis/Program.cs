@@ -13,18 +13,27 @@ namespace Kattis
 
         class Worker
         {
+            private string input;
             public void workCode()
             {
                 GetInputs();
-                Console.WriteLine(Calculate());
+                Calculate();
             }
-            private double Calculate()
+            private void Calculate()
             {
-                return 0;
+                float percent = float.Parse(input);
+
+                float outOne = 100 / percent;
+
+                float outTwo = 100 / (100 - percent);
+
+                Console.WriteLine(outOne);
+                Console.WriteLine(outTwo);
             }
 
             private void GetInputs()
             {
+                input = Console.ReadLine();
             }
         }
     }
