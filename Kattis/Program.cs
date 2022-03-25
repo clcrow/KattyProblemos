@@ -13,18 +13,33 @@ namespace Kattis
 
         class Worker
         {
+            private List<int> outputs = new List<int>();
             public void workCode()
             {
-                GetInputs();
                 Console.WriteLine(Calculate());
             }
-            private double Calculate()
+            private string Calculate()
             {
-                return 0;
-            }
-
-            private void GetInputs()
-            {
+                string output = "";
+                string input;
+                for (int i = 1; i < 6; i++)
+                {
+                    input = Console.ReadLine();
+                    if(input.IndexOf("FBI") != -1)
+                    {
+                        outputs.Add(i);
+                    }
+                }
+                if (outputs.Count > 0)
+                {
+                    foreach (int i in outputs)
+                    {
+                        output += i + " ";
+                    }
+                    output.Trim();
+                }
+                else output = "HE GOT AWAY!";
+                return output;
             }
         }
     }
