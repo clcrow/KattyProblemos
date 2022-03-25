@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Kattis
 {
@@ -13,18 +14,27 @@ namespace Kattis
 
         class Worker
         {
+            private string input;
             public void workCode()
             {
                 GetInputs();
                 Console.WriteLine(Calculate());
             }
-            private double Calculate()
+            private int Calculate()
             {
-                return 0;
+                int count = 0;
+                input = input.ToLower();
+                count += input.Count(c => c == 'a');
+                count += input.Count(c => c == 'e');
+                count += input.Count(c => c == 'i');
+                count += input.Count(c => c == 'o');
+                count += input.Count(c => c == 'u');
+                return count;
             }
 
             private void GetInputs()
             {
+                input = Console.ReadLine();
             }
         }
     }
